@@ -1,0 +1,769 @@
+/**
+ * ============================================
+ * HyperGear Tech - Main Stylesheet (UPGRADED)
+ * ============================================
+ * Blue gradient + Liquid Glass theme
+ */
+
+/* ========== ROOT VARIABLES ========== */
+:root {
+  --hg-blue-deep: #0a1628;
+  --hg-blue-dark: #0d2137;
+  --hg-blue-primary: #1a73e8;
+  --hg-blue-bright: #2196f3;
+  --hg-blue-light: #64b5f6;
+  --hg-blue-cyan: #00bcd4;
+  --hg-gradient-1: linear-gradient(
+    135deg,
+    #0a1628 0%,
+    #1a3a5c 50%,
+    #1a73e8 100%
+  );
+  --hg-gradient-2: linear-gradient(135deg, #1a73e8 0%, #00bcd4 100%);
+  --hg-gradient-3: linear-gradient(135deg, #0d2137 0%, #1a73e8 100%);
+  --hg-shadow-blue: 0 4px 20px rgba(26, 115, 232, 0.3);
+  --hg-shadow-glow: 0 0 30px rgba(26, 115, 232, 0.4);
+  --hg-font: "Poppins", sans-serif;
+  /* Liquid Glass variables */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-light: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-border-light: rgba(255, 255, 255, 0.35);
+  --glass-blur: 20px;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --glass-glow: 0 0 40px rgba(26, 115, 232, 0.15);
+}
+
+/* ========== BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--hg-font);
+  color: #333;
+  overflow-x: hidden;
+  animation: fadeInPage 0.6s ease-out;
+}
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== LIQUID GLASS UTILITY ========== */
+.glass-effect {
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border-light);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.glass-dark {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    var(--glass-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ========== NAVBAR (Liquid Glass Enhanced) ========== */
+.hg-navbar {
+  background: var(--hg-gradient-1) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  padding: 0.8rem 0;
+  backdrop-filter: blur(10px);
+  z-index: 1050;
+}
+.glass-navbar {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 22, 40, 0.85) 0%,
+    rgba(26, 58, 92, 0.8) 50%,
+    rgba(26, 115, 232, 0.75) 100%
+  ) !important;
+  backdrop-filter: blur(24px) saturate(1.4) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.brand-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.hg-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  transition: all 0.3s ease;
+  position: relative;
+  font-size: 0.9rem;
+}
+.hg-navbar .nav-link:hover {
+  color: #ffc107 !important;
+  transform: translateY(-1px);
+}
+.hg-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ffc107;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.hg-navbar .nav-link:hover::after {
+  width: 70%;
+}
+/* Fix: Don't show underline for button-style nav links */
+.hg-navbar .nav-link.btn::after {
+  display: none;
+}
+.cart-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.65rem;
+  border-radius: 50%;
+  padding: 0.2em 0.5em;
+  animation: badgePulse 2s infinite;
+}
+@keyframes badgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+  overflow: hidden;
+}
+.hero-slide {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hg-gradient-1);
+  opacity: 0.92;
+}
+.slide-1 {
+  background-image: url("https://via.placeholder.com/1920x700/0a1628/ffffff?text=");
+}
+.slide-2 {
+  background-image: url("https://via.placeholder.com/1920x700/0d2137/ffffff?text=");
+}
+.slide-3 {
+  background-image: url("https://via.placeholder.com/1920x700/1a3a5c/ffffff?text=");
+}
+.min-vh-60 {
+  min-height: 60vh;
+}
+.slide-content {
+  position: relative;
+  z-index: 2;
+}
+.carousel-item {
+  transition: transform 0.8s ease-in-out;
+}
+
+.animate-fade-in {
+  animation: slideFadeIn 0.8s ease-out both;
+}
+.animate-fade-in:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.animate-fade-in:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.animate-fade-in:nth-child(4) {
+  animation-delay: 0.45s;
+}
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== BUTTONS (Liquid Glass Enhanced) ========== */
+.hg-btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--hg-shadow-blue);
+}
+.hg-btn-glow:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    var(--hg-shadow-glow),
+    0 8px 25px rgba(0, 0, 0, 0.2);
+}
+.hg-btn-glow::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 70%
+  );
+  transition: all 0.5s ease;
+  transform: translateX(-100%);
+}
+.hg-btn-glow:hover::after {
+  transform: translateX(100%);
+}
+/* Glass Button Style */
+.btn-glass {
+  background: rgba(26, 115, 232, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(26, 115, 232, 0.3);
+  color: var(--hg-blue-primary);
+  transition: all 0.3s ease;
+}
+.btn-glass:hover {
+  background: rgba(26, 115, 232, 0.35);
+  border-color: rgba(26, 115, 232, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(26, 115, 232, 0.2);
+  color: var(--hg-blue-primary);
+}
+
+/* Add-to-cart animation */
+.add-to-cart-btn.added {
+  animation: cartBounce 0.5s ease;
+}
+@keyframes cartBounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+}
+
+/* ========== SECTION STYLES ========== */
+.page-header {
+  background: var(--hg-gradient-1);
+  border-bottom: 3px solid var(--hg-blue-primary);
+}
+.hg-divider {
+  width: 60px;
+  height: 4px;
+  background: var(--hg-gradient-2);
+  border-radius: 2px;
+  margin-top: 0.75rem;
+}
+.bg-light-blue {
+  background: linear-gradient(180deg, #f0f7ff 0%, #e3f0ff 100%);
+}
+.promo-section {
+  background: var(--hg-gradient-3);
+  position: relative;
+  overflow: hidden;
+}
+.promo-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 193, 7, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+
+/* ========== CATEGORY CARDS (Liquid Glass) ========== */
+.category-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.category-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    var(--hg-shadow-blue),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: rgba(26, 115, 232, 0.3);
+  background: rgba(255, 255, 255, 0.85);
+}
+.category-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--hg-gradient-2);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+}
+.category-card:hover .category-icon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* ========== PRODUCT CARDS (Liquid Glass + Fixed Image Layout) ========== */
+.product-card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 12px 30px rgba(26, 115, 232, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-color: rgba(26, 115, 232, 0.2);
+}
+.product-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e3f0ff, #f0f7ff);
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  padding: 0;
+}
+.product-card:hover .product-img {
+  transform: scale(1.08);
+}
+
+/* ========== PRODUCT DETAIL GALLERY ========== */
+.main-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e3f0ff, #f0f7ff);
+}
+.main-product-img {
+  transition: all 0.4s ease;
+  cursor: zoom-in;
+}
+.gallery-thumb {
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+.gallery-thumb:hover,
+.gallery-thumb.active {
+  opacity: 1;
+  border-color: var(--hg-blue-primary) !important;
+  transform: scale(1.05);
+}
+.gallery-track::-webkit-scrollbar {
+  height: 4px;
+}
+.gallery-track::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+}
+.gallery-track::-webkit-scrollbar-thumb {
+  background: var(--hg-blue-primary);
+  border-radius: 2px;
+}
+.sale-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: linear-gradient(135deg, #ff5252, #ff1744);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  z-index: 2;
+  letter-spacing: 1px;
+}
+.sale-badge-lg {
+  padding: 6px 16px;
+  font-size: 0.85rem;
+}
+
+/* ========== PRODUCT DETAIL ========== */
+.product-detail-img-wrapper {
+  position: relative;
+  background: linear-gradient(135deg, #e3f0ff, #f0f7ff);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ========== VARIATION SELECTOR ========== */
+.variant-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.variant-btn {
+  padding: 8px 20px;
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+}
+.variant-btn:hover {
+  border-color: var(--hg-blue-primary);
+  background: rgba(26, 115, 232, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.15);
+}
+.variant-btn.active {
+  border-color: var(--hg-blue-primary);
+  background: linear-gradient(
+    135deg,
+    rgba(26, 115, 232, 0.12),
+    rgba(0, 188, 212, 0.08)
+  );
+  color: var(--hg-blue-primary);
+  font-weight: 600;
+  box-shadow:
+    0 4px 15px rgba(26, 115, 232, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+.variant-btn.active::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 6px;
+  font-size: 0.75rem;
+}
+/* Color swatch variant */
+.variant-color-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  vertical-align: middle;
+}
+.variant-price-mod {
+  font-size: 0.75rem;
+  color: #888;
+  margin-left: 4px;
+}
+
+/* ========== FEATURE CARDS (Liquid Glass) ========== */
+.feature-card {
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    var(--hg-shadow-blue),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: rgba(26, 115, 232, 0.2);
+}
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--hg-gradient-2);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(26, 115, 232, 0.25);
+}
+
+/* ========== LOGIN / REGISTER CARD (Liquid Glass) ========== */
+.login-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border-top: 4px solid var(--hg-blue-primary);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid var(--hg-blue-primary);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* ========== GLASS CARD (Generic) ========== */
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+.glass-card:hover {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border-color: rgba(26, 115, 232, 0.15);
+}
+
+/* ========== ADMIN GLASS PANELS ========== */
+.admin-glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+.admin-stat-card {
+  border-radius: 14px !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+.admin-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ========== FOOTER ========== */
+.hg-footer {
+  background: var(--hg-gradient-1);
+  color: #fff;
+}
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.footer-links a:hover {
+  color: #ffc107;
+  padding-left: 5px;
+}
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.social-icon:hover {
+  background: var(--hg-blue-primary);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+}
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* ========== ADMIN SIDEBAR ========== */
+.admin-sidebar .nav-link {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+.admin-sidebar .nav-link:hover,
+.admin-sidebar .nav-link.active {
+  background: var(--hg-blue-primary);
+  color: #fff !important;
+}
+
+/* ========== SCROLL REVEAL ANIMATION ========== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== FORM CONTROLS (Glass Enhanced) ========== */
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--hg-blue-primary);
+  box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* ========== LIST GROUP ACTIVE ========== */
+.list-group-item.active {
+  background: var(--hg-blue-primary);
+  border-color: var(--hg-blue-primary);
+}
+
+/* ========== PAGINATION ========== */
+.page-link {
+  color: var(--hg-blue-primary);
+}
+.page-item.active .page-link {
+  background: var(--hg-blue-primary);
+  border-color: var(--hg-blue-primary);
+}
+
+/* ========== OVERRIDE BOOTSTRAP PRIMARY ========== */
+.btn-primary {
+  background: var(--hg-gradient-2);
+  border: none;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1565c0 0%, #0097a7 100%);
+}
+.btn-outline-primary {
+  color: var(--hg-blue-primary);
+  border-color: var(--hg-blue-primary);
+}
+.btn-outline-primary:hover {
+  background: var(--hg-blue-primary);
+  border-color: var(--hg-blue-primary);
+}
+.text-primary {
+  color: var(--hg-blue-primary) !important;
+}
+.bg-primary {
+  background: var(--hg-gradient-2) !important;
+}
+.badge.bg-primary {
+  background: var(--hg-gradient-2) !important;
+}
+
+/* ========== SMOOTH HOVER ENHANCEMENTS ========== */
+.card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* ========== TABLE GLASS HEADER ========== */
+.table-dark {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 22, 40, 0.95),
+    rgba(26, 58, 92, 0.9)
+  ) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .min-vh-60 {
+    min-height: 45vh;
+  }
+  .display-3 {
+    font-size: 2rem;
+  }
+  .admin-sidebar {
+    display: none;
+  }
+  .hero-slide .lead {
+    font-size: 0.95rem;
+  }
+  .variant-btn {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 576px) {
+  .brand-text {
+    font-size: 1.1rem;
+  }
+  .product-img-wrapper {
+    height: 180px;
+  }
+}
